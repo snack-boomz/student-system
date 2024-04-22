@@ -18,19 +18,19 @@ class Student
         DegreeProgram getDegreeProgram();
 
         void setStudentID(int id);
-        void setFirstName(std::string firstName);
-        void setLastName(std::string lastName);
-        void setEmailAddress(std::string emailAddress);
+        void setFirstName(std::string f_name);
+        void setLastName(std::string l_name);
+        void setEmailAddress(std::string address);
         void setAge(int age);
         void setNumDaysCompleteCourse(std::vector<int> numDaysToCompleteCourseVector);
         void setDegreeProgram(DegreeProgram degreeProgramVal);
 
     private:
         int studentID;
-        std::string firstName;
-        std::string lastName;
+        std::string studentFirstName;
+        std::string studentLastName;
         std::string emailAddress;
-        int age;
+        int studentAge;
         std::vector<int> numDaysCompleteCourse;
         DegreeProgram degreeProgram;
         
@@ -73,32 +73,32 @@ void Student::setStudentID(int id)
 
 void Student::setFirstName(std::string firstName)
 {
-
+    studentFirstName = firstName;
 }
 
 void Student::setLastName(std::string lastName)
 {
-
+    studentLastName = lastName;
 }
 
-void Student::setEmailAddress(std::string emailAddress)
+void Student::setEmailAddress(std::string address)
 {
-
+    emailAddress = address;
 }
 
 void Student::setAge(int age)
 {
-
+    studentAge = age;
 }
 
 void Student::setNumDaysCompleteCourse(std::vector<int> numDaysToCompleteCourseVector)
 {
-
+    numDaysCompleteCourse = numDaysToCompleteCourseVector;
 }
 
 void Student::setDegreeProgram(DegreeProgram degreeProgramVal)
 {
-
+    degreeProgram = degreeProgramVal;
 }
 
 #endif
