@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
+#include <array>
 #include "degree.h"
 
 class Student
@@ -14,7 +14,7 @@ class Student
         std::string getLastName();
         std::string getEmailAddress();
         int getAge();
-        std::vector<int> getNumDaysCompleteCourse();
+        std::array<int, 3> getNumDaysCompleteCourse();
         DegreeProgram getDegreeProgram();
 
         void setStudentID(int id);
@@ -22,8 +22,9 @@ class Student
         void setLastName(std::string l_name);
         void setEmailAddress(std::string address);
         void setAge(int age);
-        void setNumDaysCompleteCourse(std::vector<int> numDaysToCompleteCourseVector);
+        void setNumDaysCompleteCourse(std::array<int, 3> numDaysToCompleteCourseArray);
         void setDegreeProgram(DegreeProgram degreeProgramVal);
+        void Student::printStudentData();
 
     private:
         int studentID;
@@ -31,7 +32,7 @@ class Student
         std::string studentLastName;
         std::string emailAddress;
         int studentAge;
-        std::vector<int> numDaysCompleteCourse;
+        std::array<int, 3> numDaysCompleteCourse;
         DegreeProgram degreeProgram;
         
 };

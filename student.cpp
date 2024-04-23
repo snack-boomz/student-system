@@ -1,5 +1,32 @@
 #include "student.h"
 
+Student::Student()
+{
+    // ints and strings below to be filled out later
+    studentID = -1;
+    studentFirstName = "TBD";
+    studentLastName = "TBD";
+    emailAddress = "TBD@domain.com";
+    studentAge = -1; 
+    std::array<int, 3> placeholder;
+    numDaysCompleteCourse = placeholder; // empty 
+    degreeProgram = SECURITY; // default to SECURITY
+}
+
+void Student::printStudentData()
+{
+    std::cout << getStudentID();
+    std::cout << getFirstName();
+    std::cout << getLastName();
+    std::cout << getEmailAddress();
+    std::cout << getAge();
+    std::cout << "Array Of Number of Days to Complete Each Course:\n";
+    auto size = getNumDaysCompleteCourse().size();
+    auto a = getNumDaysCompleteCourse();
+    for (int i = 0; i < size; i++) std::cout << a.at(i);
+    std::cout << getDegreeProgram();
+}
+
 int Student::getStudentID()
 {
     return studentID;
@@ -23,6 +50,11 @@ std::string Student::getEmailAddress()
 int Student::getAge()
 {
     return studentAge;
+}
+
+std::array<int, 3> Student::getNumDaysCompleteCourse()
+{
+    return numDaysCompleteCourse;
 }
 
 DegreeProgram Student::getDegreeProgram()
@@ -55,9 +87,9 @@ void Student::setAge(int age)
     studentAge = age;
 }
 
-void Student::setNumDaysCompleteCourse(std::vector<int> numDaysToCompleteCourseVector)
+void Student::setNumDaysCompleteCourse(std::array<int, 3> numDaysToCompleteCourseArray)
 {
-    numDaysCompleteCourse = numDaysToCompleteCourseVector;
+    numDaysCompleteCourse = numDaysToCompleteCourseArray;
 }
 
 void Student::setDegreeProgram(DegreeProgram degreeProgramVal)
