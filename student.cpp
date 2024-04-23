@@ -15,29 +15,30 @@ Student::Student()
 
 void Student::printStudentData()
 {
-    std::cout << getStudentID(); + "\t";
-    std::cout << "First Name: " + getFirstName(); + "\t";
-    std::cout << "Last Name: " + getLastName(); + "\t";
-    std::cout << "Email Address: " + getEmailAddress(); + "\t";
-    std::cout << "Age: " + getAge(); + "\t";
-    std::cout << "daysinCourse: [";
-    auto size = getNumDaysCompleteCourse().size();
-    auto a = getNumDaysCompleteCourse();
+    std::cout << std::to_string(getStudentID()) + "\t"
+    + std::string("First Name: ") + getFirstName(); + "\t"
+    + std::string("Last Name: ") + getLastName() + "\t"
+    + std::string("Email Address: ") + getEmailAddress() + "\t"
+    + std::string("Age: ") + std::to_string(getAge()) + "\t"
+    + std::string("daysinCourse: [");
+
+    int size = getNumDaysCompleteCourse().size();
+    std::array<int, 3> a = getNumDaysCompleteCourse();
     for (int i = 0; i < size; i++) std::cout << a.at(i);
     std::cout << "]\t";
     std::string degreeProgramString = "";
     switch (getDegreeProgram())
     {
-        case '0':
+        case SECURITY:
             degreeProgramString = "SECURITY";
-        case '1':
+        case NETWORK:
             degreeProgramString = "NETWORK";
-        case '2':
+        case SOFTWARE:
             degreeProgramString = "SOFTWARE";
         default:
             degreeProgramString = "INVALID";
     }
-    std::cout << "Degree Program: " + degreeProgramString; + "\t";
+    std::cout << std::string("Degree Program: ") + degreeProgramString + "\t";
 }
 
 int Student::getStudentID()
@@ -105,7 +106,17 @@ void Student::setNumDaysCompleteCourse(std::array<int, 3> numDaysToCompleteCours
     numDaysCompleteCourse = numDaysToCompleteCourseArray;
 }
 
-void Student::setDegreeProgram(DegreeProgram degreeProgramVal)
+void Student::setDegreeProgram(int degreeProgramVal)
 {
-    degreeProgram = degreeProgramVal;
+    switch (degreeProgramVal)
+    {
+        case 0:
+            degreeProgram = SECURITY;
+        case 1:
+            degreeProgram = NETWORK;
+        case 2:
+            degreeProgram = SOFTWARE;
+        
+    }
+    
 }

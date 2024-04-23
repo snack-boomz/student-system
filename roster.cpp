@@ -7,7 +7,7 @@ Roster::Roster()
     for (int i = 0; i < 5; i++)
     {
         Student* st = new Student();
-        auto size = studentData[i].size();
+        int size = studentData[i].size();
         std::string id = "";
         std::string first = "";
         std::string last = "";
@@ -17,26 +17,52 @@ Roster::Roster()
         std::string secondCourse = "";
         std::string thirdCourse = "";
         std::string program = "";
-        for (int j = 0; j < size; j++)
+        
+        // for (int j = 0; j < size; j++)
+        int j = 0;
+        while (j != size)
         {
-            while (studentData[i][j] != ',') { id += studentData[i][j]; }
-            while (studentData[i][j] != ',') { first += studentData[i][j]; }
-            while (studentData[i][j] != ',') { last += studentData[i][j]; }
-            while (studentData[i][j] != ',') { email += studentData[i][j]; }
-            while (studentData[i][j] != ',') { age += studentData[i][j]; }
-            while (studentData[i][j] != ',') { firstCourse += studentData[i][j]; }
-            while (studentData[i][j] != ',') { secondCourse += studentData[i][j]; }
-            while (studentData[i][j] != ',') { thirdCourse += studentData[i][j]; }
-            while (studentData[i][j] != ',') { program += studentData[i][j]; }
-
+            while (studentData[i][j] != ',') { id += studentData[i][j]; j++; }
+            while (studentData[i][j] != ',') { first += studentData[i][j]; j++; }
+            while (studentData[i][j] != ',') { last += studentData[i][j]; j++; }
+            while (studentData[i][j] != ',') { email += studentData[i][j]; j++; }
+            while (studentData[i][j] != ',') { age += studentData[i][j]; j++; }
+            while (studentData[i][j] != ',') { firstCourse += studentData[i][j]; j++; }
+            while (studentData[i][j] != ',') { secondCourse += studentData[i][j]; j++; }
+            while (studentData[i][j] != ',') { thirdCourse += studentData[i][j]; j++; }
+            while (j != size) { program += studentData[i][j]; j++; }
         }
-        st->setStudentID(studentData[i][0]);
-        // st->setFirstName(studentData[i][1]);
-        // st->setStudentID(studentData[i][0]);
-        // st->setStudentID(studentData[i][0]);
-        // st->setStudentID(studentData[i][0]);
-        // st->setStudentID(studentData[i][0]);
-        // st->setStudentID(studentData[i][0]);
+        st->setStudentID(stoi(id));
+        st->setFirstName(first);
+        st->setLastName(last);
+        st->setEmailAddress(email);
+        st->setAge(stoi(age));
+        std::array<int, 3> a = { stoi(firstCourse), stoi(secondCourse), stoi(thirdCourse) };
+        st->setNumDaysCompleteCourse( a );
 
+        if (program == "SECURITY")
+        {
+            st->setDegreeProgram(SECURITY);
+        }
+        else if (program == "NETWORK")
+        {
+            st->setDegreeProgram(NETWORK);
+        }
+        else
+        {
+            st->setDegreeProgram(SOFTWARE);
+        }
+
+        classRosterArray[i] = st;
+    }
+}
+
+void Roster::printAll()
+{
+    int size = classRosterArray.size();
+    std::cout << size << std::endl;
+    for (int i = 0; i < size; i++)
+    {
+        classRosterArray[i]->printStudentData();
     }
 }

@@ -9,6 +9,7 @@
 class Student
 {
     public:
+        Student();
         int getStudentID();
         std::string getFirstName();
         std::string getLastName();
@@ -23,8 +24,8 @@ class Student
         void setEmailAddress(std::string address);
         void setAge(int age);
         void setNumDaysCompleteCourse(std::array<int, 3> numDaysToCompleteCourseArray);
-        void setDegreeProgram(DegreeProgram degreeProgramVal);
-        void Student::printStudentData();
+        void setDegreeProgram(int degreeProgramVal);
+        void printStudentData();
 
     private:
         int studentID;
