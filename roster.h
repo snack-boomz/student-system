@@ -5,8 +5,10 @@
 #include <string>
 #include <array>
 #include "degree.h"
+#include "student.h"
 
-class Student
+
+class Roster
 {
     public:
         void add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram);
@@ -16,7 +18,7 @@ class Student
         void printInvalidEmails();
         void printByDegreeProgram(DegreeProgram degreeProgram);
     private:
-        std::array<int*, 5> classRosterArray;
+        std::array<Student*, 5> classRosterArray;
         
 };
 
