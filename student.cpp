@@ -15,16 +15,29 @@ Student::Student()
 
 void Student::printStudentData()
 {
-    std::cout << getStudentID();
-    std::cout << getFirstName();
-    std::cout << getLastName();
-    std::cout << getEmailAddress();
-    std::cout << getAge();
-    std::cout << "Array Of Number of Days to Complete Each Course:\n";
+    std::cout << getStudentID(); + "\t";
+    std::cout << "First Name: " + getFirstName(); + "\t";
+    std::cout << "Last Name: " + getLastName(); + "\t";
+    std::cout << "Email Address: " + getEmailAddress(); + "\t";
+    std::cout << "Age: " + getAge(); + "\t";
+    std::cout << "daysinCourse: [";
     auto size = getNumDaysCompleteCourse().size();
     auto a = getNumDaysCompleteCourse();
     for (int i = 0; i < size; i++) std::cout << a.at(i);
-    std::cout << getDegreeProgram();
+    std::cout << "]\t";
+    std::string degreeProgramString = "";
+    switch (getDegreeProgram())
+    {
+        case '0':
+            degreeProgramString = "SECURITY";
+        case '1':
+            degreeProgramString = "NETWORK";
+        case '2':
+            degreeProgramString = "SOFTWARE";
+        default:
+            degreeProgramString = "INVALID";
+    }
+    std::cout << "Degree Program: " + degreeProgramString; + "\t";
 }
 
 int Student::getStudentID()
