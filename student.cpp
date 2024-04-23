@@ -3,7 +3,7 @@
 Student::Student()
 {
     // ints and strings below to be filled out later
-    studentID = -1;
+    studentID = "A0";
     studentFirstName = "TBD";
     studentLastName = "TBD";
     emailAddress = "TBD@domain.com";
@@ -15,7 +15,7 @@ Student::Student()
 
 void Student::printStudentData()
 {
-    std::cout << std::to_string(getStudentID()) + "\t"
+    std::cout << getStudentID() + "\t"
     + std::string("First Name: ") + getFirstName(); + "\t"
     + std::string("Last Name: ") + getLastName() + "\t"
     + std::string("Email Address: ") + getEmailAddress() + "\t"
@@ -41,7 +41,7 @@ void Student::printStudentData()
     std::cout << std::string("Degree Program: ") + degreeProgramString + "\t";
 }
 
-int Student::getStudentID()
+std::string Student::getStudentID()
 {
     return studentID;
 }
@@ -76,7 +76,7 @@ DegreeProgram Student::getDegreeProgram()
     return degreeProgram;
 }
 
-void Student::setStudentID(int id)
+void Student::setStudentID(std::string id)
 {
     studentID = id;
 }
@@ -116,7 +116,7 @@ void Student::setDegreeProgram(int degreeProgramVal)
             degreeProgram = NETWORK;
         case 2:
             degreeProgram = SOFTWARE;
-        
+
     }
-    
+
 }

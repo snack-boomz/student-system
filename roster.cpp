@@ -17,22 +17,31 @@ Roster::Roster()
         std::string secondCourse = "";
         std::string thirdCourse = "";
         std::string program = "";
-        
-        // for (int j = 0; j < size; j++)
-        int j = 0;
-        while (j != size)
+
+        for (int j = 0; j < size; j++)
         {
             while (studentData[i][j] != ',') { id += studentData[i][j]; j++; }
+            j++;
             while (studentData[i][j] != ',') { first += studentData[i][j]; j++; }
+            j++;
             while (studentData[i][j] != ',') { last += studentData[i][j]; j++; }
+            j++;
             while (studentData[i][j] != ',') { email += studentData[i][j]; j++; }
+            j++;
             while (studentData[i][j] != ',') { age += studentData[i][j]; j++; }
+            j++;
             while (studentData[i][j] != ',') { firstCourse += studentData[i][j]; j++; }
+            j++;
             while (studentData[i][j] != ',') { secondCourse += studentData[i][j]; j++; }
+            j++;
             while (studentData[i][j] != ',') { thirdCourse += studentData[i][j]; j++; }
+            j++;
             while (j != size) { program += studentData[i][j]; j++; }
         }
-        st->setStudentID(stoi(id));
+        std::cout << "id: " << id << std::endl;
+        std::cout << "first: " << first << std::endl;
+        std::cout << "age: " << age << std::endl;
+        st->setStudentID(id);
         st->setFirstName(first);
         st->setLastName(last);
         st->setEmailAddress(email);

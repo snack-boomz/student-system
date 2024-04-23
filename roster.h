@@ -19,7 +19,7 @@ class Roster
         void printByDegreeProgram(DegreeProgram degreeProgram);
     private:
         std::array<Student*, 5> classRosterArray;
-        
+
 };
 
 #endif
