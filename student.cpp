@@ -24,7 +24,7 @@ void Student::printStudentData()
 
     int size = getNumDaysCompleteCourse().size();
     std::array<int, 3> a = getNumDaysCompleteCourse();
-    for (int i = 0; i < size; i++) std::cout << ((i != size - 1) ? std::to_string(a.at(i)) + "," : std::to_string(a.at(i)));
+    for (int i = 0; i < size; i++) std::cout << ((i != size - 1) ? std::to_string(a.at(i)) + ", " : std::to_string(a.at(i)));
     std::cout << " }\t";
     std::string degreeProgramString = "";
     switch (getDegreeProgram())
