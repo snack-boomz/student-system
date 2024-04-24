@@ -22,19 +22,24 @@ void Student::printStudentData()
     + std::string("Age: ") + std::to_string(getAge()) + "\t"
     + std::string("daysinCourse: { ");
 
+    // numDaysCompleteCourse formatting
     int size = getNumDaysCompleteCourse().size();
     std::array<int, 3> a = getNumDaysCompleteCourse();
     for (int i = 0; i < size; i++) std::cout << ((i != size - 1) ? std::to_string(a.at(i)) + ", " : std::to_string(a.at(i)));
     std::cout << " }\t";
+
     std::string degreeProgramString = "";
     switch (getDegreeProgram())
     {
         case SECURITY:
             degreeProgramString = "SECURITY";
+            break;
         case NETWORK:
             degreeProgramString = "NETWORK";
+            break;
         case SOFTWARE:
             degreeProgramString = "SOFTWARE";
+            break;
         default:
             degreeProgramString = "INVALID";
     }
@@ -112,11 +117,13 @@ void Student::setDegreeProgram(int degreeProgramVal)
     {
         case 0:
             degreeProgram = SECURITY;
+            break;
         case 1:
             degreeProgram = NETWORK;
+            break;
         case 2:
             degreeProgram = SOFTWARE;
-
+            break;
     }
 
 }

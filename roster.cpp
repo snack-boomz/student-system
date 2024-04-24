@@ -38,10 +38,6 @@ Roster::Roster()
             j++;
             while (j != size) { program += studentData[i][j]; j++; }
         }
-        std::cout << "id: " << id << std::endl;
-        std::cout << "first: " << first << std::endl;
-        std::cout << "age: " << age << std::endl;
-        std::cout << "last: " << last << std::endl;
         st->setStudentID(id);
         st->setFirstName(first);
         st->setLastName(last);
