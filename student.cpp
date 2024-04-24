@@ -16,16 +16,16 @@ Student::Student()
 void Student::printStudentData()
 {
     std::cout << getStudentID() + "\t"
-    + std::string("First Name: ") + getFirstName(); + "\t"
+    + std::string("First Name: ") + getFirstName() + "\t"
     + std::string("Last Name: ") + getLastName() + "\t"
     + std::string("Email Address: ") + getEmailAddress() + "\t"
     + std::string("Age: ") + std::to_string(getAge()) + "\t"
-    + std::string("daysinCourse: [");
+    + std::string("daysinCourse: { ");
 
     int size = getNumDaysCompleteCourse().size();
     std::array<int, 3> a = getNumDaysCompleteCourse();
-    for (int i = 0; i < size; i++) std::cout << a.at(i);
-    std::cout << "]\t";
+    for (int i = 0; i < size; i++) std::cout << ((i != size - 1) ? std::to_string(a.at(i)) + "," : std::to_string(a.at(i)));
+    std::cout << " }\t";
     std::string degreeProgramString = "";
     switch (getDegreeProgram())
     {
@@ -38,7 +38,7 @@ void Student::printStudentData()
         default:
             degreeProgramString = "INVALID";
     }
-    std::cout << std::string("Degree Program: ") + degreeProgramString + "\t";
+    std::cout << std::string("Degree Program: ") + degreeProgramString + "\n";
 }
 
 std::string Student::getStudentID()
@@ -53,7 +53,7 @@ std::string Student::getFirstName()
 
 std::string Student::getLastName()
 {
-    return studentFirstName;
+    return studentLastName;
 }
 
 std::string Student::getEmailAddress()
