@@ -7,9 +7,10 @@ using namespace std;
 int main(void)
 {
     cout << "hello world!\n";
-    
+
     Roster* r = new Roster();
-    cout << "roster built. printing all things\n";
+    r->printAll();
+    r->add("A6", "Trey", "A", "email@cdomain.com", 10, 2, 2, 2, SECURITY);
     r->printAll();
 
 

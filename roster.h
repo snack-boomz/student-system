@@ -2,6 +2,7 @@
 #define ROSTER_H
 
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <array>
 #include "student.h"
@@ -18,8 +19,8 @@ class Roster
         void printInvalidEmails();
         void printByDegreeProgram(DegreeProgram degreeProgram);
     private:
-        std::array<Student*, 5> classRosterArray;
-
+        Student** classRosterArray;
+        int rosterSize;
 };
 
 #endif
