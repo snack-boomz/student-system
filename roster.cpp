@@ -132,3 +132,16 @@ void Roster::add(std::string studentID, std::string firstName, std::string lastN
         }
     }
 }
+
+void Roster::printAverageDaysInCourse(std::string studentID)
+{
+  for (int i = 0; i < rosterSize; i++)
+  {
+      if (classRosterArray[i]->getStudentID() == studentID)
+      {
+        std::array<int, 3> s_course_days = classRosterArray[i]->getNumDaysCompleteCourse();
+        int sum = 0; for (int i = 0; i < 3; i++) sum += s_course_days[i];
+        std::cout << classRosterArray[i]->getFirstName() << " " << classRosterArray[i]->getLastName() << " (Student ID: " << studentID << ") Average Days in Course: " << sum / 3;
+      }
+  }
+}
