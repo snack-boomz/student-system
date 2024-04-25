@@ -141,7 +141,27 @@ void Roster::printAverageDaysInCourse(std::string studentID)
       {
         std::array<int, 3> s_course_days = classRosterArray[i]->getNumDaysCompleteCourse();
         int sum = 0; for (int i = 0; i < 3; i++) sum += s_course_days[i];
-        std::cout << classRosterArray[i]->getFirstName() << " " << classRosterArray[i]->getLastName() << " (Student ID: " << studentID << ") Average Days in Course: " << sum / 3;
+        std::cout << classRosterArray[i]->getFirstName() << " " << classRosterArray[i]->getLastName() << " (Student ID: " << studentID << ") Average Days in Course: " << sum / 3 << std::endl;
       }
+  }
+}
+
+void Roster::printInvalidEmails()
+{
+  std::cout << "Invalid Emails: " << std::endl;
+  for (int i = 0; i < rosterSize; i++)
+  {
+    std::string curr_email = classRosterArray[i]->getEmailAddress();
+    int strlen = curr_email.length();
+    int sign_count = 0;
+    int whitespace = 0;
+    for (int i = 0; i < strlen; i++)
+    {
+      if (curr_email[i] == '@' || curr_email[i] == '.') sign_count++;
+      if (curr_email[i] == ' ') whitespace++;
+    }
+    
+    if (sign_count < 2 || whitespace > 0) std::cout << curr_email << std::endl;
+    
   }
 }
