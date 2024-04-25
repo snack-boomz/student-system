@@ -8,8 +8,7 @@ Student::Student()
     studentLastName = "TBD";
     emailAddress = "TBD@domain.com";
     studentAge = -1; 
-    std::array<int, 3> placeholder;
-    numDaysCompleteCourse = placeholder; // empty 
+    numDaysCompleteCourse = { 0, 0, 0 };
     degreeProgram = SECURITY; // default to SECURITY
 }
 
