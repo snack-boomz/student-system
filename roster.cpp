@@ -165,3 +165,32 @@ void Roster::printInvalidEmails()
     
   }
 }
+
+void Roster::printByDegreeProgram(DegreeProgram degreeProgram)
+{
+  std::string s = "";
+  switch (degreeProgram)
+  {
+      case SECURITY:
+          s = "SECURITY";
+          break;
+      case NETWORK:
+          s = "NETWORK";
+          break;
+      case SOFTWARE:
+          s = "SOFTWARE";
+          break;
+      default:
+          s = "INVALID";
+  }
+  
+  std::cout << "Students in Degree Program " << s << ":" << std::endl;
+  
+  for (int i = 0; i < rosterSize; i++)
+  {
+        if (classRosterArray[i]->getDegreeProgram() == degreeProgram)
+        {
+          classRosterArray[i]->printStudentData();
+        }
+  }
+}
