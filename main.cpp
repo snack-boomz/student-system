@@ -6,14 +6,26 @@ using namespace std;
 
 int main(void)
 {
-    cout << "hello world!\n";
-
+    std::cout << "Scripting and Programming - Applications - C867 | C++ | 008512485 | Trey Annis" << std::endl;
+    
     Roster* classRoster = new Roster();
-    // classRoster->printAll();
-    classRoster->add("A6", "Trey", "A", "email@cdomain.com", 10, 2, 2, 2, SECURITY);
-    classRoster->printAverageDaysInCourse("A2");
-    classRoster->printInvalidEmails();
     classRoster->printAll();
+    classRoster->printInvalidEmails();
+    Student** classRosterArray = classRoster->getClassRosterArray();
+    int curr_r_size = classRoster->getRosterSize();
+
+    for (int i = 0; i < curr_r_size; i++)
+    {
+        classRoster->printAverageDaysInCourse(classRosterArray[i]->getStudentID());
+    }
+    
+    classRoster->printByDegreeProgram(SOFTWARE);
+    classRoster->remove("A3");
+    classRoster->printAll();
+    classRoster->remove("A3");
+
+    delete classRoster;
+    classRoster = nullptr;
 
 
     return 0;

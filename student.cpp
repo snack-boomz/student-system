@@ -8,7 +8,7 @@ Student::Student()
     studentLastName = "TBD";
     emailAddress = "TBD@domain.com";
     studentAge = -1; 
-    numDaysCompleteCourse = { 0, 0, 0 };
+    numDaysCompleteCourse[0] = 0; numDaysCompleteCourse[1] = 0; numDaysCompleteCourse[2] = 0; 
     degreeProgram = SECURITY; // default to SECURITY
 }
 
